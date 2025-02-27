@@ -1,0 +1,12 @@
+{
+  "name": "scoped-dependencies-example",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Demonstrates that remote apps with same scoped dependencies do not share the same instance of the dependency.",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces"
+  }
+}
