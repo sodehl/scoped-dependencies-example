@@ -7,13 +7,6 @@ This repository demonstrates that remote apps with the same scoped dependencies 
 The repository contains multiple applications, each with its own set of dependencies:
 
 - `app-1`
-  {
-    react: {
-      singleton: true,
-      version: "^18.3.0",
-      shareScope: "react18"
-    }
-  }
 - `app-2`
 - `app-3`
 - `shell`
@@ -39,19 +32,19 @@ This scope is used by `app-1` and `app-2`
 }
 ```
 
-### React 19 scope
+### React 17 scope
 This scope is used by `app-3`
 ```json
 {
   react: {
     singleton: true,
-    version: "^19.0.0",
-    shareScope: "react19"
+    version: "^17.0.0",
+    shareScope: "react17"
   },
   "react-dom": {
     singleton: true,
-    version: "^19.0.0",
-    shareScope: "react19"
+    version: "^17.0.0",
+    shareScope: "react17"
   }
 }
 ```

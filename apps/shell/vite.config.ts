@@ -13,19 +13,19 @@ export default defineConfig({
         app1: {
           type: "module",
           name: "app1",
-          entry: `/app-1/remoteEntry.js`,
+          entry: `http://localhost:5174/app-1/remoteEntry.js`,
           entryGlobalName: "app1",
         },
         app2: {
           type: "module",
           name: "app2",
-          entry: `/app-2/remoteEntry.js`,
+          entry: `http://localhost:5175/app-2/remoteEntry.js`,
           entryGlobalName: "app2",
         },
         app3: {
           type: "module",
           name: "app3",
-          entry: `/app-3/remoteEntry.js`,
+          entry: `http://localhost:5176/app-3/remoteEntry.js`,
           entryGlobalName: "app3",
         },
       },

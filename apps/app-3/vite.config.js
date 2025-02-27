@@ -3,31 +3,31 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
-const port = 5174;
+const port = 5176;
 export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "app1",
+      name: "app3",
       exposes: {
-        "./export-app": "./src/export-app.tsx",
+        "./export-app": "./src/export-app.jsx",
       },
       filename: "remoteEntry.js",
       shared: {
         react: {
           singleton: true,
-          requiredVersion: "^18.3.0",
-          shareScope: "react18",
+          requiredVersion: "^17.0.2",
+          shareScope: "react17",
         },
         "react-dom": {
           singleton: true,
-          requiredVersion: "^18.3.0",
-          shareScope: "react18",
+          requiredVersion: "^17.0.2",
+          shareScope: "react17",
         },
       },
     }),
   ],
-  base: "/app-1",
+  base: "/app-3",
   build: {
     target: "esnext",
     minify: false,
