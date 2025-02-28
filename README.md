@@ -17,7 +17,7 @@ There are two sets of shared dependencies, separated by scopes:
 
 ### React 18 scope
 This scope is used by `app-1` and `app-2`
-```json
+```javascript
 {
   react: {
     singleton: true,
@@ -34,7 +34,7 @@ This scope is used by `app-1` and `app-2`
 
 ### React 17 scope
 This scope is used by `app-3`
-```json
+```javascript
 {
   react: {
     singleton: true,
