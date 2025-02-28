@@ -71,29 +71,12 @@ Both apps do not share the same loading promise:
 
 ## How to Run the Example Apps
 
-### Install Dependencies
-
-First, install the dependencies for all apps:
+Run the following commands in each app directory (`shell`, `app-1`, `app-2`, `app-3`):
 
 ```sh
 npm install
-```
-
-### Build the Apps
-
-Build all apps:
-
-```sh
 npm run build
+npm run preview
 ```
 
-### Start the Apps
-
-Start all apps:
-
-```sh
-npm run preview -w shell
-npm run preview -w app-1
-npm run preview -w app-2
-npm run preview -w app-3
-```
+Navigate to `http://localhost:5173/` in your browser.
