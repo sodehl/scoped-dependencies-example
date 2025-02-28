@@ -6,14 +6,14 @@ This repository demonstrates that remote apps with the same scoped dependencies 
 
 The repository contains multiple applications, each with its own set of dependencies:
 
-- `app-1`
-- `app-2`
-- `app-3`
 - `shell`
+- `app-1` (React 18)
+- `app-2` (React 18)
+- `app-3` (React 17)
 
 ## Shared Dependencies
 
-There are two sets of shared dependencies:
+There are two sets of shared dependencies, separated by scopes:
 
 ### React 18 scope
 This scope is used by `app-1` and `app-2`
@@ -21,14 +21,14 @@ This scope is used by `app-1` and `app-2`
 {
   react: {
     singleton: true,
-    version: "^18.3.0",
-    shareScope: "react18"
+    requiredVersion: "^18.3.0",
+    shareScope: "react18",
   },
   "react-dom": {
     singleton: true,
-    version: "^18.3.0",
-    shareScope: "react18"
-  }
+    requiredVersion: "^18.3.0",
+    shareScope: "react18",
+  },
 }
 ```
 
@@ -38,16 +38,36 @@ This scope is used by `app-3`
 {
   react: {
     singleton: true,
-    version: "^17.0.0",
-    shareScope: "react17"
+    requiredVersion: "^17.0.2",
+    shareScope: "react17",
   },
   "react-dom": {
     singleton: true,
-    version: "^17.0.0",
-    shareScope: "react17"
-  }
+    requiredVersion: "^17.0.2",
+    shareScope: "react17",
+  },
 }
 ```
+
+## The Problem
+
+When a shared dependency is scoped, it is not shared between apps that use the same scope. Let's compare navigation from App A to App B.
+
+## shared React + React DOM dependencies (no scope) ✅
+
+When navigating from `app-1` to `app-2`, three requests are made (in total 268 KB):
+![shared React + React DOM dependencies (no scope)](./resources/no-scope-1.png)
+
+Both apps share the same loading promise of the React and React DOM dependencies:
+![shared React + React DOM dependencies (no scope)](./resources/no-scope-2.png)
+
+## shared React 18 + React DOM 18 dependencies (with scope) ❌
+
+When navigating from `app-1` to `app-2`, more requests are made and the amount of the transferred data is increased:
+![shared React 18 + React DOM 18 dependencies (with scope)](./resources/scope-1.png)
+
+Both apps do not share the same loading promise:
+![shared React 18 + React DOM 18 dependencies (with scope)](./resources/scope-2.png)
 
 ## How to Run the Example Apps
 
